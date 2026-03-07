@@ -39,12 +39,16 @@ WHEN NOT MATCHED THEN
 
 
 
------ Purpose: Performs an upsert for the Store dimension by loading distinct
--- store records from stg.StoreMaster into dw.DimStore. The process selects
--- the most recent record per StoreId using LoadDttm, updates existing rows
--- when store attributes change, and inserts new stores that do not yet
--- exist in the dimension.
+/*Purpose: Performs an upsert for the Store dimension 
 
+Load distinct store records from stg.StoreMaster into dw.DimStore. The process selects
+the most recent record per StoreId using LoadDttm, updates existing rows
+when store attributes change, and inserts new stores that do not yet
+exist in the dimension.
+
+Source: stg.vSalesRaw_Dedup
+Target: dw.DimStore
+*/
 
 ---Upsert DimStore---
 
@@ -117,11 +121,18 @@ WHERE u.StoreKey IS NULL;
 DROP TABLE #StoreUpsert;
 
 
--- Purpose: Inserts missing date dimension rows into dw.DimDate by extracting
--- distinct SaleDate values from staging. The process creates a YYYYMMDD DateKey
--- and derives reusable calendar attributes such as year, quarter, month name,
--- day name, and weekend indicator for downstream reporting and analytics.
+/*
+Purpose: Inserts missing date dimension rows into dw.DimDate by extracting
 
+Description:
+Distinct SaleDate values from staging. The process creates a YYYYMMDD DateKey
+and derives reusable calendar attributes such as year, quarter, month name,
+day name, and weekend indicator for downstream reporting and analytics.
+
+Source: stg.vSalesRaw_Dedup
+Target: dw.DimDate
+
+*/
 
 ---Upsert DimDate---
 ;WITH d AS (
@@ -147,6 +158,7 @@ FROM d
 LEFT JOIN dw.DimDate dd
     ON dd.[Date] = d.[Date]
 WHERE dd.[Date] IS NULL;
+
 
 
 
