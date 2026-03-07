@@ -39,3 +39,26 @@ The warehouse follows a star schema design optimized for analytical workloads.
 ![Warehouse Schema](EcomDW_Project/Images/EcomDw_Diagram.png)
 
 
+
+### 2️⃣ SSIS Control Flow
+The ETL pipeline is orchestrated using SQL Server Integration Services (SSIS).
+![SSIS Control Flow](EcomDW_Project/Images/SSIS_Control_Flow.png)
+
+# Key Pipline Stages Include:
+Pipeline initialization
+
+Staging loads
+
+Dimension upserts
+
+Fact table loading
+
+Validation framework
+
+Execution logging
+
+---
+
+### 3️⃣ Data Flow – File Ingestion
+CSV files are processed through an SSIS data flow which performs transformations before loading staging tables.
+![DataFlow](EcomDW_Project/Images/"C:\Images\DataFlow_File_Ingestion.png")
