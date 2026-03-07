@@ -1,0 +1,331 @@
+import csv
+import random
+from pathlib import Path
+from datetime import date, timedelta
+
+# ===============================================
+# CONFIGURATION
+# ===============================================
+OUTPUT_DIR = Path(r"C:\EcomDW\inbound")
+ENCODING = "cp1252"
+
+SEED = 42
+MONTH_COUNT = 6
+START_YEAR = 2024
+START_MONTH = 4
+
+# ===============================================
+# REGION / GEOGRAPHY
+# ===============================================
+REGIONS = {
+    "Atlantic": ["FL", "GA", "NC", "SC"],
+    "Northeast": ["NY", "NJ", "PA", "MA"],
+    "Heartland": ["IL", "OH", "MI", "MN"],
+    "Southwest": ["TX", "AZ", "NM", "NV"],
+    "Pacific": ["CA", "WA", "OR", "CO"]
+}
+
+CITIES = {
+    "FL": ["Jacksonville","Tampa"],
+    "GA": ["Atlanta","Augusta"],
+    "NC": ["Charlotte","Durham"],
+    "SC": ["Charleston","Columbia"],
+    "NY": ["Brooklyn","Buffalo"],
+    "NJ": ["Newark","Hoboken"],
+    "PA": ["Philadelphia","Allentown"],
+    "MA": ["Boston","Cambridge"],
+    "IL": ["Chicago","Springfield"],
+    "OH": ["Columbus","Cincinnati"],
+    "MI": ["Detroit","Grand Rapids"],
+    "MN": ["Minneapolis","Rochester"],
+    "TX": ["Dallas","Austin"],
+    "AZ": ["Phoenix","Scottsdale"],
+    "NM": ["Albuquerque","Las Cruces"],
+    "NV": ["Las Vegas","Henderson"],
+    "CA": ["Los Angeles","Irvine"],
+    "WA": ["Seattle","Tacoma"],
+    "OR": ["Portland","Eugene"],
+    "CO": ["Denver","Boulder"]
+}
+
+# ===============================================
+# STORES
+# ===============================================
+STORE_NAMES = [
+"Blackstone Exchange",
+"Silver Harbor Market",
+"Juniper Commons",
+"Aurora Square",
+"Velvet Ridge Shops",
+"Obsidian Corner",
+"Willow Gate Retail",
+"Golden Lantern Plaza",
+"Granite Path Center",
+"Blue Ember District",
+"Crown Haven Market",
+"Cedar Line Shops",
+"Ivory Point Retail",
+"North Hollow Commons",
+"Mosaic Landing",
+"Red Maple Exchange",
+"Aster Walk",
+"Monarch Terrace"
+]
+
+# ===============================================
+# PRODUCTS
+# (Base price exists only internally)
+# ===============================================
+PRODUCT_CATALOG = {
+"Electronics":[
+("iPhone 17 Pro Max","Aurelius Mobile",1299),
+("Titan Gaming Laptop 16","VoltEdge",1899),
+("UltraView 8K Smart TV","HelioScreen",1499),
+("ProShot Mirrorless Camera","LumaCraft",1199),
+("Carbon Mechanical Keyboard","KeyDrift",139),
+("Precision Gaming Mouse","NexCircuit",79)
+],
+
+"Apparel":[
+("Mink Cap","Noir Atelier",58),
+("Designer Jeans","Stone Republic",124),
+("Tailored Bomber Jacket","West Arc",148),
+("Slim Denim Jacket","Black Ember",96),
+("Leather High Top Sneakers","Verge Union",132),
+("Wool Blend Overcoat","Dusk Label",210)
+],
+
+"Home":[
+("Barista Espresso Machine","Briar Home",229),
+("Glass Touch Air Fryer","Modern Hearth",119),
+("Cordless Lift Vacuum","Pure Nest",188),
+("Smart Ambient Desk Lamp","Halo Living",54),
+("Ceramic Cookware Trio","Oak & Ember",139)
+],
+
+"Sports":[
+("Carbon Tennis Racket","Striker Field",119),
+("Elite Match Basketball","Summit Pulse",38),
+("Performance Yoga Mat","Motion Harbor",42),
+("Adjustable Dumbbell Pair","Forge Peak",249),
+("Distance Running Shoes","Pace Domain",116)
+]
+}
+
+UNITS_RANGE = {
+"Electronics":(1,3),
+"Apparel":(1,8),
+"Home":(1,4),
+"Sports":(1,6)
+}
+
+# ===============================================
+# UTILITIES
+# ===============================================
+def ensure_folder():
+    OUTPUT_DIR.mkdir(parents=True,exist_ok=True)
+
+def write_csv(path,cols,rows):
+    with open(path,"w",newline="",encoding=ENCODING) as f:
+        writer=csv.DictWriter(f,fieldnames=cols)
+        writer.writeheader()
+        writer.writerows(rows)
+
+def random_date(year,month):
+    start=date(year,month,1)
+    if month==12:
+        end=date(year+1,1,1)-timedelta(days=1)
+    else:
+        end=date(year,month+1,1)-timedelta(days=1)
+
+    span=(end-start).days
+    return start+timedelta(days=random.randint(0,span))
+
+def month_sequence(y,m,count):
+    for _ in range(count):
+        yield y,m
+        m+=1
+        if m>12:
+            m=1
+            y+=1
+
+# ===============================================
+# DATA BUILDERS
+# ===============================================
+def build_stores():
+
+    region_names=list(REGIONS.keys())
+    stores=[]
+
+    for i,name in enumerate(STORE_NAMES,1):
+
+        region=random.choice(region_names)
+        state=random.choice(REGIONS[region])
+        city=random.choice(CITIES[state])
+
+        stores.append({
+        "StoreId":f"STR{i:04d}",
+        "StoreName":name,
+        "City":city,
+        "State":state,
+        "Region":region
+        })
+
+    return stores
+
+
+def build_products():
+
+    products=[]
+    counter=1
+
+    for category,items in PRODUCT_CATALOG.items():
+
+        for pname,brand,base_price in items:
+
+            products.append({
+            "ProductId":f"PRD{counter:04d}",
+            "ProductName":pname,
+            "Category":category,
+            "Brand":brand,
+
+            # internal only
+            "_base_price":base_price
+            })
+
+            counter+=1
+
+    return products
+
+
+def apply_price_variance(base):
+
+    multiplier=random.uniform(0.95,1.05)
+    return round(base*multiplier,2)
+
+
+def build_sales(products,stores,year,month):
+
+    rows=[]
+    sales_per_store=120
+
+    for store in stores:
+
+        for _ in range(sales_per_store):
+
+            p=random.choice(products)
+
+            min_u,max_u=UNITS_RANGE[p["Category"]]
+            units=random.randint(min_u,max_u)
+
+            price=apply_price_variance(p["_base_price"])
+            revenue=round(units*price,2)
+
+            rows.append({
+
+            "SaleDate":random_date(year,month).strftime("%Y-%m-%d"),
+
+            "ProductId":p["ProductId"],
+            "ProductName":p["ProductName"],
+            "Category":p["Category"],
+            "Brand":p["Brand"],
+
+            "StoreId":store["StoreId"],
+            "StoreName":store["StoreName"],
+            "City":store["City"],
+            "State":store["State"],
+
+            "Units":units,
+            "Revenue":f"{revenue:.2f}"
+            })
+
+    return rows
+
+
+def bad_rows():
+
+    return [
+    {
+    "SaleDate":"2024-15-01",
+    "ProductId":"PRD0001",
+    "ProductName":"iPhone 17 Pro Max",
+    "Category":"Electronics",
+    "Brand":"Aurelius Mobile",
+    "StoreId":"STR0001",
+    "StoreName":"Blackstone Exchange",
+    "City":"Jacksonville",
+    "State":"FL",
+    "Units":1,
+    "Revenue":"1299.99"
+    },
+    {
+    "SaleDate":"2024-04-12",
+    "ProductId":"PRD0002",
+    "ProductName":"Titan Gaming Laptop 16",
+    "Category":"Electronics",
+    "Brand":"VoltEdge",
+    "StoreId":"STR0002",
+    "StoreName":"Silver Harbor Market",
+    "City":"Atlanta",
+    "State":"GA",
+    "Units":2,
+    "Revenue":"2O99.00"
+    }
+    ]
+
+# ===============================================
+# MAIN
+# ===============================================
+def main():
+
+    random.seed(SEED)
+    ensure_folder()
+
+    stores=build_stores()
+    products=build_products()
+
+    # write store master
+    write_csv(
+    OUTPUT_DIR/"stores_master.csv",
+    ["StoreId","StoreName","City","State","Region"],
+    stores
+    )
+
+    # write product master
+    product_rows=[{
+    "ProductId":p["ProductId"],
+    "ProductName":p["ProductName"],
+    "Category":p["Category"],
+    "Brand":p["Brand"]
+    } for p in products]
+
+    write_csv(
+    OUTPUT_DIR/"products_master.csv",
+    ["ProductId","ProductName","Category","Brand"],
+    product_rows
+    )
+
+    # monthly sales
+    for y,m in month_sequence(START_YEAR,START_MONTH,MONTH_COUNT):
+
+        rows=build_sales(products,stores,y,m)
+
+        write_csv(
+        OUTPUT_DIR/f"sales_{y:04d}-{m:02d}.csv",
+        ["SaleDate","ProductId","ProductName","Category","Brand",
+        "StoreId","StoreName","City","State","Units","Revenue"],
+        rows
+        )
+
+    write_csv(
+    OUTPUT_DIR/"sales_test_badrows.csv",
+    ["SaleDate","ProductId","ProductName","Category","Brand",
+    "StoreId","StoreName","City","State","Units","Revenue"],
+    bad_rows()
+    )
+
+    print("Files generated successfully.")
+
+
+if __name__=="__main__":
+    main()
