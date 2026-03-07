@@ -182,7 +182,75 @@ If critical validation rules fail, the pipeline stops execution.
 
 ### 🔟 SSRS Sales Overview Report
 The warehouse powers an SSRS report that provides an overview of sales performance.
+![Data Validation](EcomDW_Project/Images/rpt_MonthTotals.png)
 
+<div align="center">
+  
+Users can filter data by:
+
+Category
+
+Region
+
+Brand
+
+Store
+
+Date range
+
+</div>
+
+
+###1️⃣1️⃣ Drill-Through Detail Report
+
+
+<div align="center">
+
+# Technologies Used :
+
+Python
+
+SQL Server
+
+SSIS
+
+SSRS
+
+
+# Key Concepts Demonstrated:
+
+This project demonstrates several core data engineering practices:
+
+Dimensional modeling
+
+Surrogate key resolution
+
+ETL pipeline orchestration
+
+Data validation frameworks
+
+Pipeline observability
+
+BI reporting integration
+
+
+---
+
+
+# Future Enhancements:
+
+Potential improvements include:
+
+Incremental loading strategies
+
+Slowly changing dimension support
+
+Automated anomaly detection
+
+Orchestration with modern tools such as Airflow
+
+
+</div>
 
 
 
