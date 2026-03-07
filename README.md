@@ -166,15 +166,15 @@ A validation stored procedure acts as a data quality gate before pipeline comple
 
 ## Validation checks include:
 
-row count comparisons across pipeline stages
+Row count comparisons across pipeline stages
 
-duplicate fact grain detection
+Duplicate fact grain detection
 
-missing dimension key checks
+Missing dimension key checks
 
-domain rule validation
+Domain rule validation
 
-price anomaly detection
+Price anomaly detection
 
 If critical validation rules fail, the pipeline stops execution.
 
