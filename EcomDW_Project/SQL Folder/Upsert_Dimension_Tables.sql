@@ -41,6 +41,7 @@ WHEN NOT MATCHED THEN
 
 /*Purpose: Performs an upsert for the Store dimension 
 
+Description:
 Load distinct store records from stg.StoreMaster into dw.DimStore. The process selects
 the most recent record per StoreId using LoadDttm, updates existing rows
 when store attributes change, and inserts new stores that do not yet
@@ -158,6 +159,7 @@ FROM d
 LEFT JOIN dw.DimDate dd
     ON dd.[Date] = d.[Date]
 WHERE dd.[Date] IS NULL;
+
 
 
 
