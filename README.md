@@ -201,6 +201,7 @@ Date range
 
 
 ### 1️⃣1️⃣ Drill-Through Detail Report
+![Drill- Through Report](EcomDW_Project/Images/Drill_Through_Report.png)
 
 
 <div align="center">
