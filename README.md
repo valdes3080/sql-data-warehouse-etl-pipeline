@@ -17,8 +17,8 @@ Tools: SQL Server | SSIS | SSRS | Git | Data Warehousing
   
 ## Data Pipeline Architecture
 
-Synthetic Data Generation → ETL Pipeline → Dimensional Warehouse → Analytics
-
+Synthetic Data Generation →                               ETL Pipeline → Dimensional Warehouse → Analytics
+![Data Generation](EcomDW_Project/Images/Python_img.png).
 The pipeline transforms generated transactional data into a structured analytics warehouse.
 
 
