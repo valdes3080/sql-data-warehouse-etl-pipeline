@@ -5,29 +5,24 @@ Overview
 An end-to-end data engineering project that simulates a production
 data warehouse environment using SQL Server, SSIS, and SSRS.
 
-
+<div align="center">
 # Key Engineering Concepts Demonstrated
 
 ✔ Dimensional Modeling:
-
 Designed a star schema including DimDate, DimProduct, DimStore, and FactSales.
 
 ✔ Incremental Fact Loading:
-
 Implemented UPDATE + INSERT logic to support idempotent pipeline execution.
 
 ✔ Surrogate Key Resolution:
-
 Natural keys resolved through dimension lookups during fact loading.
 
 ✔ Data Quality Validation:
-
 Custom validation stored procedure ensures pipeline integrity before loading.
 
 ✔ Lineage Tracking:
-
 SourceFile and LoadDttm columns enable full auditability.
-
+</div>
 
 
 
