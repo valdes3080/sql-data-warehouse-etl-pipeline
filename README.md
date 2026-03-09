@@ -26,7 +26,7 @@ SourceFile and LoadDttm columns enable full auditability.
 
 <div align="center">
 
-![Visual](EcomDW_Project/Images/Architecture_img.png)
+![Visual](EcomDW_Project/Images/Visual_Architecture_img)
 </div>
 
 
