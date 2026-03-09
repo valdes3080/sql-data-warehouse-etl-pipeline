@@ -13,32 +13,6 @@ The system:
 
 The goal of this project is to simulate a **production-style data warehouse pipeline**, demonstrating data ingestion, transformation, dimensional modeling, and analytical reporting.
 
-
-## Key Engineering Concepts Demonstrated
-
-✔ Dimensional Modeling:
-Designed a star schema including DimDate, DimProduct, DimStore, and FactSales.
-
-✔ Incremental Fact Loading:
-Implemented UPDATE + INSERT logic to support idempotent pipeline execution.
-
-✔ Surrogate Key Resolution:
-Natural keys resolved through dimension lookups during fact loading.
-
-✔ Data Quality Validation:
-Custom validation stored procedure ensures pipeline integrity before loading.
-
-✔ Lineage Tracking:
-SourceFile and LoadDttm columns enable full auditability.
-
-
-
-<div align="center">
-
-![Visual](EcomDW_Project/Images/Visual_Architecture_img.png)
-</div>
-
-
 <div align="center">
 
 ## 🛠 Tech StackTech Stack
@@ -51,6 +25,31 @@ SourceFile and LoadDttm columns enable full auditability.
 ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-Development-purple)
 ![GitHub](https://img.shields.io/badge/GitHub-Version%20Control-black)
 </div>
+
+
+## Key Engineering Concepts Demonstrated
+
+## Data Engineering Practices
+
+This project was designed to simulate production-style data engineering workflows.
+
+Key practices demonstrated include:
+
+- **Dimensional modeling** using a star schema (FactSales with supporting dimensions)
+- **Automated ETL pipelines** using SSIS
+- **Synthetic data generation** using Python to simulate real-world datasets
+- **Incremental data loading** patterns to support repeatable ETL runs
+- **Surrogate key resolution** between staging data and dimension tables
+- **Data quality validation** to ensure referential integrity
+- **Separation of staging and warehouse layers**
+
+
+
+<div align="center">
+
+![Visual](EcomDW_Project/Images/Visual_Architecture_img.png)
+</div>
+
 
 
 ### 1️⃣ Warehouse Schema
