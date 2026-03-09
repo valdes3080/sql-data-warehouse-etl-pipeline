@@ -40,15 +40,12 @@ SourceFile and LoadDttm columns enable full auditability.
 
 
 <div align="center">
-  
+
 ## Tech Stack
 
-- **SQL Server** – Data warehouse storage
-- **SSIS** – ETL pipeline orchestration
-- **Python** – Synthetic sales data generation
-- **SSRS** – Reporting and analytics
-- **T-SQL** – Data transformations and dimensional modeling
-- **GitHub** – Version control and project documentation
+![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-red)
+![SSIS](https://img.shields.io/badge/SSIS-ETL-blue)
+![Python](https://img.shields.io/badge/Python-Data%20Generation-yellow)
 </div>
 
 
