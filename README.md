@@ -29,7 +29,7 @@ SourceFile and LoadDttm columns enable full auditability.
 <div align="center">
 
 ![Visual](EcomDW_Project/Images/Architecture_img.png)
-
+![Tech Stack](EcomDW_Project/Images/Tech_stack_.png)
 </div>
 
 
