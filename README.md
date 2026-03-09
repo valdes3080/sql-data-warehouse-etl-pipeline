@@ -14,8 +14,7 @@ Tools: SQL Server | SSIS | SSRS | Git | Data Warehousing
 
 <div align="center">
 
-  
-![DataArchitecture](EcomDW_Project/Images/Visual_Architecture_img.png)
+  ![DataArchitecture](EcomDW_Project/Images/Visual_Architecture_img.png)
 
 
 </div>
