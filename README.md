@@ -8,19 +8,24 @@ data warehouse environment using SQL Server, SSIS, and SSRS.
 
 # Key Engineering Concepts Demonstrated
 
-✔ Dimensional Modeling
+✔ Dimensional Modeling:
+
 Designed a star schema including DimDate, DimProduct, DimStore, and FactSales.
 
-✔ Incremental Fact Loading
+✔ Incremental Fact Loading:
+
 Implemented UPDATE + INSERT logic to support idempotent pipeline execution.
 
-✔ Surrogate Key Resolution
+✔ Surrogate Key Resolution:
+
 Natural keys resolved through dimension lookups during fact loading.
 
-✔ Data Quality Validation
+✔ Data Quality Validation:
+
 Custom validation stored procedure ensures pipeline integrity before loading.
 
-✔ Lineage Tracking
+✔ Lineage Tracking:
+
 SourceFile and LoadDttm columns enable full auditability.
 
 
