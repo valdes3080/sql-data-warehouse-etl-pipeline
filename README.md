@@ -40,6 +40,7 @@ SourceFile and LoadDttm columns enable full auditability.
 
 
 <div align="center">
+  
 ## Tech Stack
 
 - **SQL Server** – Data warehouse storage
