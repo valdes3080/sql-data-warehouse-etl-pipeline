@@ -88,9 +88,8 @@ Preserve raw source data
 Enable validation and cleansing
 
 Support reprocessing if needed
+
 ---
-
-
 
 
 ### 5️⃣ Deduplication Logic
@@ -203,33 +202,6 @@ Date range
 
 
 <div align="center">
-
-# Technologies Used :
-
-Python
-
-SQL Server
-
-SSIS
-
-SSRS
-
-
-# Key Concepts Demonstrated:
-
-This project demonstrates several core data engineering practices:
-
-Dimensional modeling
-
-Surrogate key resolution
-
-ETL pipeline orchestration
-
-Data validation frameworks
-
-Pipeline observability
-
-BI reporting integration
 
 
 ---
