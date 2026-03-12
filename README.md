@@ -98,9 +98,12 @@ If critical validation rules fail, the pipeline stops execution.
 
 ###  SSRS Sales Overview Report
 The warehouse powers an SSRS report that provides an overview of sales performance.
-![Data Validation](EcomDW_Project/Images/rpt_MonthTotals.png)
+![Data Validation](EcomDW_Project/Images/MonthlyTotals_rpt.gif)
+
+---
 
 <div align="center">
+
   
 Users can filter data by:
 
@@ -116,15 +119,11 @@ Date range
 
 </div>
 
+---
 
-###  Drill-Through Detail Report
-![Drill- Through Report](EcomDW_Project/Images/Drill_Through_Report.png)
 
 
 <div align="center">
-
-
----
 
 
 # Future Enhancements:
@@ -143,6 +142,9 @@ Orchestration with modern tools such as Airflow
 </div>
 
 
+Author 
+
+# Tatiana Valdes
 
 
 
