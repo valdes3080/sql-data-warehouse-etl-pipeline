@@ -62,7 +62,7 @@ The animation below demonstrates how data moves through the ETL pipeline from in
 
 ---
 
-![Model](EcomDW_Project/Images/Staging_Dedup_Dimen_slide.pptx)
+![Model](EcomDW_Project/Images/Staging_Dedup_Dimen_slide.gif)
 
 
 
