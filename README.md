@@ -80,20 +80,23 @@ The animation below demonstrates how data moves through the ETL pipeline from in
 A validation stored procedure acts as a data quality gate before pipeline completion.
 ![Data Validation](EcomDW_Project/Images/usp_ValidationLoad_image.png)
 
+<div align="center">
+
 ## Validation checks include:
 
-Row count comparisons across pipeline stages
+:hash: Row count comparisons across pipeline stages
 
-Duplicate fact grain detection
+:repeat_one: Duplicate fact grain detection
 
-Missing dimension key checks
+:mag_right: Missing dimension key checks
 
-Domain rule validation
+:lock: Domain rule validation
 
-Price anomaly detection
+:moneybag: Price anomaly detection
 
-If critical validation rules fail, the pipeline stops execution.
+:warning: If critical validation rules fail, the pipeline stops execution.
 
+</div>
 ---
 
 ###  SSRS Sales Overview Report
