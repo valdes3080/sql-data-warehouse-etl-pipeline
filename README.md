@@ -72,39 +72,10 @@ The animation below demonstrates how data moves through the ETL pipeline from in
 
 ---
 
-### 7️⃣ Fact Table Loading
-Fact records are loaded after dimension tables are updated.
-
-The fact table grain is defined as:
-DateKey
-ProductKey
-StoreKey
-
-Surrogate keys are resolved by joining staging data to dimension tables.
-
-Duplicate facts are prevented using NOT EXISTS checks.
-
-### 8️⃣ Pipeline Observability
-Each pipeline execution generates a unique RunId.
-
-This identifier allows all ETL steps to be associated with a single execution.
-
-Execution metadata is stored in:
-
-etl.RunLog
-
-Example tracked information:
-
-Pipeline step name
-
-Row counts
-
-Execution status
-
-Timestamps
 
 
-### 9️⃣ Data Validation Framework
+
+###  Data Validation Framework
 
 A validation stored procedure acts as a data quality gate before pipeline completion.
 ![Data Validation](EcomDW_Project/Images/usp_ValidationLoad_image.png)
@@ -125,7 +96,7 @@ If critical validation rules fail, the pipeline stops execution.
 
 ---
 
-### 🔟 SSRS Sales Overview Report
+###  SSRS Sales Overview Report
 The warehouse powers an SSRS report that provides an overview of sales performance.
 ![Data Validation](EcomDW_Project/Images/rpt_MonthTotals.png)
 
