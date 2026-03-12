@@ -65,7 +65,7 @@ The animation below demonstrates how data moves through the ETL pipeline from in
 <div align="center">
 
 
-![Model](EcomDW_Project/Images/ETL_DataProccessing_Overviewgif.gif)
+![Model](EcomDW_Project/Images/Breakdown_gif.gif)
 
 
 </div>
