@@ -28,7 +28,7 @@ The goal of this project is to simulate a **production-style data warehouse pipe
 
 ---
 
-![Testing](EcomDW_Project/Images/DataPipeline_.png)
+![Testing](EcomDW_Project/Images/Transparent_.png)
 
 
 
