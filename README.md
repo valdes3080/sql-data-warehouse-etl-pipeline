@@ -27,6 +27,7 @@ The goal of this project is to simulate a **production-style data warehouse pipe
 </div>
 
 
+
 ## Data Engineering Practices
 
 This project was designed to simulate production-style data engineering workflows.
@@ -147,9 +148,12 @@ Orchestration with modern tools such as Airflow
 </div>
 
 
-Author 
+## Author
 
-# Tatiana Valdes
+Tatiana Valdes  
+Aspiring Data Engineer | SQL Developer | Data Analyst  
+
+GitHub: https://github.com/valdes3080
 
 
 
