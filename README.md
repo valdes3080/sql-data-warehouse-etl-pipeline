@@ -17,39 +17,23 @@ The goal of this project is to simulate a **production-style data warehouse pipe
 
 ## 🛠 Tech Stack
 
-![Python](https://img.shields.io/badge/Python-Data%20Generation-teal)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-teal)
-![SSIS](https://img.shields.io/badge/SSIS-ETL-teal)
+![Python](https://img.shields.io/badge/Python-Data%20Generation-yellow)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-blue)
+![SSIS](https://img.shields.io/badge/SSIS-ETL-purple)
 ![SSRS](https://img.shields.io/badge/SSRS-Reporting-teal)
-![T-SQL](https://img.shields.io/badge/T--SQL-Data%20Transformation-teal)
-![Visual Studio](https://img.shields.io/badge/Visual%20Studio-Development-teal)
-![GitHub](https://img.shields.io/badge/GitHub-Version%20Control-teal)
+![T-SQL](https://img.shields.io/badge/T--SQL-Data%20Transformation-red)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-Development-purple)
+![GitHub](https://img.shields.io/badge/GitHub-Version%20Control-white)
 </div>
 
 
-
-## Data Engineering Practices
-
-This project was designed to simulate production-style data engineering workflows.
-
-Key practices demonstrated include:
-
-- **Dimensional modeling** using a star schema (FactSales with supporting dimensions)
-- **Automated ETL pipelines** using SSIS
-- **Synthetic data generation** using Python to simulate real-world datasets
-- **Incremental data loading** patterns to support repeatable ETL runs
-- **Surrogate key resolution** between staging data and dimension tables
-- **Data quality validation** to ensure referential integrity
-- **Separation of staging and warehouse layers**
-
-
-
+---
 <div align="center">
 
 ![Visual](EcomDW_Project/Images/Visual_Architecture_img.png)
 </div>
 
-
+---
 
 ## Pipeline Walkthrough
 
@@ -110,7 +94,7 @@ The warehouse powers an SSRS report that provides an overview of sales performan
 <div align="center">
 
   
-Users can filter data by:
+# Users can filter data by:
 
 :clipboard:  Category
 
@@ -124,7 +108,7 @@ Users can filter data by:
 
 </div>
 
-
+---
 
 
 <div align="center">
