@@ -35,9 +35,8 @@ The goal of this project is to simulate a **production-style data warehouse pipe
 
 ---
 
-<div align="center">
 ## Pipeline Walkthrough
-</div>
+
 
 
 The animation below demonstrates how data moves through the ETL pipeline from ingestion to analytics.
@@ -52,12 +51,6 @@ The animation below demonstrates how data moves through the ETL pipeline from in
 
 <p align="center">
   <img src="EcomDW_Project/Images/ETL_process_at_a_glance.gif" width="100%">
-</p>
-
-
-
-<p align="center">
-  <img src="EcomDW_Project/Images/TAKE24.gif" width="100%">
 </p>
 
 
