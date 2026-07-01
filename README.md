@@ -47,11 +47,9 @@ The animation below demonstrates how data moves through the ETL pipeline from in
 
 </div>
 
-
 <p align="center">
-  <img src=" EcomDW_Project/Images/ETL_at_a_Glance_.gif "width="100%">
+  <img src="EcomDW_Project/Images/ETL_at_a_Glance_.gif" width="100%">
 </p>
-
 
 ###  Data Validation Framework
 
