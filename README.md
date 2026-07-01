@@ -56,7 +56,6 @@ The animation below demonstrates how data moves through the ETL pipeline from in
 
 
 
-
 ###  Data Validation Framework
 
 A validation stored procedure acts as a data quality gate before pipeline completion.
